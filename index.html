@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GaMa — клініка краси та здоровʼя в Коломиї</title>
+<meta name="description" data-i18n-content="meta.desc" content="Ліцензована клініка косметології та дерматології в Коломиї. Головний косметолог — Марта Галіщук.">
+<meta name="theme-color" content="#0B0B09">
+<link rel="icon" href="assets/img/logo.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GaMa health &amp; beauty clinic">
+<meta property="og:title" content="GaMa — клініка краси та здоровʼя | Коломия">
+<meta property="og:description" content="Ліцензія МОЗ України. Головний косметолог — Марта Галіщук. LUMECCA, DIOLAZE, ін'єкційна косметологія, масаж. Відкритий прайс.">
+<meta property="og:image" content="assets/img/logo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ═══════════════ КУРСОР-ШПРИЦ ═══════════════ -->
+<div class="cur" id="cur" aria-hidden="true">
+  <svg class="cur__svg" width="86" height="34" viewBox="-6 -17 86 34" fill="none">
+    <!-- голка: вістря — гострий кут рівно в координаті (0,0) -->
+    <path class="cur__needle" d="M0 0 4.6-.66 24-.6 24 .6 4.6 .66Z"/>
+    <!-- конус канюлі -->
+    <path class="cur__hub" d="M23.6-1.3 30.4-2.9 30.4 2.9 23.6 1.3Z"/>
+    <!-- фланець -->
+    <rect class="cur__collar" x="30.4" y="-5.8" width="3.1" height="11.6" rx="1"/>
+    <!-- скляний циліндр -->
+    <rect class="cur__barrel" x="33.5" y="-7.4" width="26" height="14.8" rx="2.4"/>
+    <!-- препарат усередині -->
+    <g class="cur__fluidwrap"><rect class="cur__fluid" x="34.6" y="-6.1" width="13.9" height="12.2" rx="1.4"/></g>
+    <!-- поділки шкали -->
+    <g class="cur__ticks" stroke-width=".9" stroke-linecap="round">
+      <path d="M39.5-7.4v3.6"/><path d="M45-7.4v3.6"/><path d="M50.5-7.4v3.6"/>
+    </g>
+    <!-- блік на склі -->
+    <path class="cur__gloss" d="M36-5.2H57" stroke-width="1.1" stroke-linecap="round"/>
+    <!-- поршень -->
+    <g class="cur__plunger">
+      <rect class="cur__stopper" x="48.5" y="-6.1" width="3.2" height="12.2" rx="1"/>
+      <path class="cur__rod" d="M51.7 0H66.4" stroke-width="3"/>
+      <rect class="cur__thumb" x="64.8" y="-8.8" width="3.6" height="17.6" rx="1.6"/>
+    </g>
+    <!-- крапля зривається з вістря -->
+    <circle class="cur__drop" cx="-2.6" cy="1.6" r="1.9"/>
+  </svg>
+  <span class="cur__ring"></span>
+</div>
+
+<!-- ═══════════════ ШАПКА ═══════════════ -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" data-cursor="link">
+    <img src="assets/img/logo.jpg" alt="GaMa health &amp; beauty clinic" width="44" height="44">
+    <span class="nav__brandtxt">
+      <b>GaMa</b>
+      <i data-i18n="footer.tagline">Клініка краси та здоровʼя</i>
+    </span>
+  </a>
+
+  <nav class="nav__links" id="navLinks">
+    <a href="#about"    data-i18n="nav.about"    data-cursor="link">Про клініку</a>
+    <a href="#team"     data-i18n="nav.team"     data-cursor="link">Спеціалісти</a>
+    <a href="#services" data-i18n="nav.services" data-cursor="link">Послуги та ціни</a>
+    <a href="#tech"     data-i18n="nav.tech"     data-cursor="link">Технології</a>
+    <a href="#feed"     data-i18n="nav.feed"     data-cursor="link">Instagram</a>
+    <a href="#booking"  data-i18n="nav.booking"  data-cursor="link">Запис</a>
+  </nav>
+
+  <div class="nav__side">
+    <button class="lang" id="langBtn" type="button" data-cursor="link" aria-label="Switch language">
+      <span class="lang__on">UA</span><span class="lang__sep"></span><span class="lang__off">EN</span>
+    </button>
+    <a class="btn btn--sm" href="#booking" data-i18n="nav.book" data-cursor="cta">Записатися</a>
+    <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ═══════════════ ГЕРОЙ ═══════════════ -->
+<section class="hero" id="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <svg class="morph morph--a" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet"><path data-blob="a"/></svg>
+    <svg class="morph morph--b" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet"><path data-blob="b"/></svg>
+    <span class="grain"></span>
+  </div>
+
+  <div class="hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow reveal" data-i18n="hero.eyebrow">Коломия · вул. Українська, 6А</p>
+      <h1 class="hero__title">
+        <span class="line"><span data-i18n="hero.title1">Клініка краси</span></span>
+        <span class="line"><em data-i18n="hero.title2">та здоровʼя</em></span>
+      </h1>
+      <p class="hero__lede reveal" data-i18n="hero.lede">Медична косметологія, дерматологія та естетика тіла в одному місці.</p>
+
+      <div class="hero__cta reveal">
+        <a class="btn" id="heroCall" href="#booking" data-cursor="cta"><span data-i18n="hero.cta">Записатися за телефоном</span></a>
+        <a class="btn btn--ghost" href="#services" data-cursor="link"><span data-i18n="hero.cta2">Дивитися прайс</span></a>
+      </div>
+
+      <div class="licence reveal" data-cursor="link">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 2 3.5 5.5v6.2c0 5 3.6 9.3 8.5 10.3 4.9-1 8.5-5.3 8.5-10.3V5.5L12 2Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m8.4 12 2.5 2.5 4.7-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-i18n="hero.badge">Ліцензія МОЗ України</span>
+      </div>
+    </div>
+
+    <figure class="hero__media">
+      <svg class="hero__clip" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <defs><clipPath id="heroClip" clipPathUnits="objectBoundingBox"><path data-blob="clip"/></clipPath></defs>
+      </svg>
+      <div class="hero__frame">
+        <img src="assets/img/hero-lips.jpg" alt="Ін'єкційна процедура в клініці GaMa" loading="eager" decoding="async">
+      </div>
+      <figcaption class="hero__cap"><span>01</span> LUMECCA · DIOLAZE · INJECTABLES</figcaption>
+    </figure>
+  </div>
+
+  <a class="hero__scroll" href="#about" data-cursor="link">
+    <span data-i18n="hero.scroll">Гортайте</span>
+    <i></i>
+  </a>
+</section>
+
+<!-- ═══════════════ БІГУЧИЙ РЯДОК БРЕНДІВ ═══════════════ -->
+<div class="marquee" aria-hidden="true"><div class="marquee__track" id="marquee"></div></div>
+
+<!-- ═══════════════ ПРО КЛІНІКУ ═══════════════ -->
+<section class="sect sect--light" id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="about__head">
+        <p class="eyebrow reveal" data-i18n="about.eyebrow">Про клініку</p>
+        <h2 class="h2 reveal" data-i18n="about.title">Роками — одна й та сама вимога до якості</h2>
+      </div>
+
+      <div class="about__body">
+        <p class="reveal lede" data-i18n="about.p1"></p>
+        <p class="reveal" data-i18n="about.p2"></p>
+        <p class="reveal" data-i18n="about.p3"></p>
+      </div>
+
+      <figure class="about__media reveal">
+        <img src="assets/img/about-calm.jpg" alt="" loading="lazy" decoding="async">
+        <svg class="morph morph--c" viewBox="0 0 600 600" aria-hidden="true"><path data-blob="c"/></svg>
+      </figure>
+    </div>
+
+    <ul class="points">
+      <li class="reveal"><b data-i18n="about.point1">Ліцензія МОЗ України</b><span data-i18n="about.point1d"></span></li>
+      <li class="reveal"><b data-i18n="about.point2">Відкритий прайс</b><span data-i18n="about.point2d"></span></li>
+      <li class="reveal"><b data-i18n="about.point3">Сертифіковані препарати</b><span data-i18n="about.point3d"></span></li>
+      <li class="reveal"><b data-i18n="about.point4">Обладнання InMode</b><span data-i18n="about.point4d"></span></li>
+    </ul>
+
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ ГОЛОВНИЙ КОСМЕТОЛОГ ═══════════════ -->
+<section class="sect sect--dark lead" id="lead">
+  <span class="wave wave--top" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path data-wave="top"/></svg></span>
+
+  <div class="wrap lead__grid">
+    <figure class="lead__photo reveal">
+      <img src="assets/img/master-marta.jpg" alt="Марта Галіщук — головний косметолог GaMa"
+           loading="lazy" decoding="async"
+           onerror="this.closest('.lead__photo').classList.add('is-empty');this.remove();">
+      <span class="lead__mono" aria-hidden="true">МГ</span>
+      <figcaption class="lead__badge">
+        <b data-i18n="lead.eyebrow">Головний косметолог</b>
+      </figcaption>
+    </figure>
+
+    <div class="lead__copy">
+      <p class="eyebrow reveal" data-i18n="lead.eyebrow">Головний косметолог</p>
+      <h2 class="h2 reveal" data-i18n="lead.name">Марта Галіщук</h2>
+      <p class="lead__role reveal" data-i18n="lead.role">Лікар-дерматолог · косметолог · трихолог</p>
+      <blockquote class="reveal" data-i18n="lead.quote"></blockquote>
+      <p class="reveal" data-i18n="lead.body"></p>
+      <a class="btn btn--light reveal" href="#booking" data-cursor="cta" data-i18n="lead.cta">Записатися до Марти Галіщук</a>
+    </div>
+  </div>
+
+  <span class="wave wave--bot" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path data-wave="bot"/></svg></span>
+</section>
+
+<!-- ═══════════════ СПЕЦІАЛІСТИ ═══════════════ -->
+<section class="sect sect--light" id="team">
+  <div class="wrap">
+    <header class="sect__head">
+      <p class="eyebrow reveal" data-i18n="team.eyebrow">Спеціалісти</p>
+      <h2 class="h2 reveal" data-i18n="team.title">Хто працює з вами</h2>
+      <p class="sect__lede reveal" data-i18n="team.lede"></p>
+    </header>
+    <div class="team" id="team-grid"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ ПОСЛУГИ ТА ЦІНИ ═══════════════ -->
+<section class="sect sect--paper" id="services">
+  <div class="wrap">
+    <header class="sect__head">
+      <p class="eyebrow reveal" data-i18n="services.eyebrow">Послуги та ціни</p>
+      <h2 class="h2 reveal" data-i18n="services.title">Прайс-лист</h2>
+      <p class="sect__lede reveal" data-i18n="services.lede"></p>
+    </header>
+
+    <div class="price">
+      <div class="price__bar">
+        <div class="tabs" id="tabs" role="tablist"></div>
+        <label class="search">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <input type="search" id="search" data-i18n-ph="services.search" placeholder="Пошук процедури…" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="price__body" id="price"></div>
+
+      <p class="price__note" data-i18n="services.disclaimer"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ТЕХНОЛОГІЇ ═══════════════ -->
+<section class="sect sect--dark" id="tech">
+  <span class="wave wave--top" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path data-wave="top2"/></svg></span>
+  <div class="wrap">
+    <header class="sect__head">
+      <p class="eyebrow reveal" data-i18n="tech.eyebrow">Технології</p>
+      <h2 class="h2 reveal" data-i18n="tech.title">Обладнання, з яким працюємо</h2>
+      <p class="sect__lede reveal" data-i18n="tech.lede"></p>
+    </header>
+    <div class="tech" id="tech-grid"></div>
+  </div>
+  <span class="wave wave--bot" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path data-wave="bot2"/></svg></span>
+</section>
+
+<!-- ═══════════════ INSTAGRAM ═══════════════ -->
+<section class="sect sect--light" id="feed">
+  <div class="wrap">
+    <header class="sect__head sect__head--row">
+      <div>
+        <p class="eyebrow reveal" data-i18n="feed.eyebrow">Instagram</p>
+        <h2 class="h2 reveal" data-i18n="feed.title">Живі роботи клініки</h2>
+        <p class="sect__lede reveal" data-i18n="feed.lede"></p>
+      </div>
+      <a class="btn btn--ghost reveal" id="feedCta" href="#" target="_blank" rel="noopener" data-cursor="cta">
+        <span data-i18n="feed.cta">Дивитися профіль</span>
+      </a>
+    </header>
+    <div class="feed" id="feed-grid"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ ЗАПИС ═══════════════ -->
+<section class="sect sect--dark booking" id="booking">
+  <span class="wave wave--top" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path data-wave="top3"/></svg></span>
+  <div class="booking__bg" aria-hidden="true">
+    <svg class="morph morph--d" viewBox="0 0 600 600"><path data-blob="d"/></svg>
+  </div>
+
+  <div class="wrap booking__grid">
+    <div class="booking__copy">
+      <p class="eyebrow reveal" data-i18n="booking.eyebrow">Запис</p>
+      <h2 class="h2 reveal" data-i18n="booking.title">Записатися на процедуру</h2>
+      <p class="sect__lede reveal" data-i18n="booking.lede"></p>
+
+      <dl class="contacts reveal">
+        <div>
+          <dt data-i18n="booking.phoneLabel">Телефон</dt>
+          <dd><a id="telLink" href="#" data-cursor="cta"></a></dd>
+        </div>
+        <div>
+          <dt data-i18n="booking.hours">Графік роботи</dt>
+          <dd id="hoursTxt"></dd>
+        </div>
+        <div>
+          <dt data-i18n="booking.addr">Адреса</dt>
+          <dd id="addrTxt"></dd>
+        </div>
+        <div>
+          <dt>Instagram</dt>
+          <dd><a id="igLink" href="#" target="_blank" rel="noopener" data-cursor="cta"></a></dd>
+        </div>
+        <div id="emailRow" hidden>
+          <dt data-i18n="booking.emailLabel">Пошта</dt>
+          <dd><a id="emailLink" href="#" data-cursor="cta"></a></dd>
+        </div>
+      </dl>
+    </div>
+
+    <form class="form reveal" id="form" novalidate>
+      <div class="field">
+        <label for="f-name" data-i18n="booking.name">Ваше імʼя</label>
+        <input id="f-name" name="name" type="text" data-i18n-ph="booking.namePh" required>
+        <em class="err" data-err="name"></em>
+      </div>
+      <div class="field">
+        <label for="f-phone" data-i18n="booking.phone">Номер телефону</label>
+        <input id="f-phone" name="phone" type="tel" placeholder="+380 __ ___ __ __" inputmode="tel" required>
+        <em class="err" data-err="phone"></em>
+      </div>
+      <div class="field">
+        <label for="f-service" data-i18n="booking.service">Послуга</label>
+        <select id="f-service" name="service"></select>
+      </div>
+      <div class="field">
+        <label for="f-comment" data-i18n="booking.comment">Коментар</label>
+        <textarea id="f-comment" name="comment" rows="3" data-i18n-ph="booking.commentPh"></textarea>
+      </div>
+
+      <button class="btn btn--light btn--full" type="submit" data-cursor="cta" data-i18n="booking.submit">Надіслати заявку</button>
+
+      <div class="form__alt">
+        <span data-i18n="booking.or">або</span>
+        <a class="chip" id="callChip" href="#" data-cursor="cta">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <span data-i18n="booking.call">Зателефонувати</span>
+        </a>
+        <a class="chip" id="directChip" href="#" target="_blank" rel="noopener" data-cursor="cta">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M21 3 10.5 13.5M21 3l-6.8 18-3.7-7.5L3 9.8 21 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <span data-i18n="booking.direct">Написати в Direct</span>
+        </a>
+        <a class="chip" id="mailChip" href="#" data-cursor="cta" hidden>
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m4 6.5 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="booking.mail">Написати на пошту</span>
+        </a>
+      </div>
+
+      <p class="form__consent" data-i18n="booking.consent"></p>
+      <p class="form__ok" id="formOk" hidden></p>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════════ КАРТА ═══════════════ -->
+<section class="sect sect--light map" id="map">
+  <div class="wrap">
+    <header class="sect__head sect__head--row">
+      <div>
+        <p class="eyebrow reveal" data-i18n="map.eyebrow">Як дістатися</p>
+        <h2 class="h2 reveal" data-i18n="map.title">Ми в центрі Коломиї</h2>
+        <p class="sect__lede reveal" data-i18n="map.lede"></p>
+      </div>
+      <div class="map__btns reveal">
+        <a class="btn" id="routeBtn" href="#" target="_blank" rel="noopener" data-cursor="cta">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span data-i18n="map.route">Прокласти маршрут</span>
+        </a>
+        <a class="btn btn--ghost" id="openMapBtn" href="#" target="_blank" rel="noopener" data-cursor="link">
+          <span data-i18n="map.open">Відкрити в Google Maps</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="map__frame reveal">
+      <iframe id="mapFrame" title="GaMa clinic — Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════ ПІДВАЛ ═══════════════ -->
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <img src="assets/img/logo.jpg" alt="GaMa" width="64" height="64">
+      <p><b>GaMa</b> <span data-i18n="footer.tagline">клініка краси та здоровʼя</span></p>
+      <p class="foot__legal" data-i18n="footer.legal"></p>
+    </div>
+
+    <div>
+      <h3 data-i18n="footer.nav">Навігація</h3>
+      <ul class="foot__nav">
+        <li><a href="#about"    data-i18n="nav.about"    data-cursor="link">Про клініку</a></li>
+        <li><a href="#team"     data-i18n="nav.team"     data-cursor="link">Спеціалісти</a></li>
+        <li><a href="#services" data-i18n="nav.services" data-cursor="link">Послуги та ціни</a></li>
+        <li><a href="#tech"     data-i18n="nav.tech"     data-cursor="link">Технології</a></li>
+        <li><a href="#booking"  data-i18n="nav.booking"  data-cursor="link">Запис</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 data-i18n="footer.contacts">Контакти</h3>
+      <ul class="foot__nav">
+        <li><a id="footTel" href="#" data-cursor="cta"></a></li>
+        <li><a id="footIg"  href="#" target="_blank" rel="noopener" data-cursor="cta"></a></li>
+        <li><span id="footAddr"></span></li>
+        <li><span id="footHours"></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot__bar">
+    <span>© <span id="year"></span> GaMa health &amp; beauty clinic. <span data-i18n="footer.rights">Усі права захищено.</span></span>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
