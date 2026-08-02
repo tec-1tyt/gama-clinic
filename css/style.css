@@ -174,16 +174,16 @@ ul,ol{ margin:0; padding:0; list-style:none }
   transition:background .45s var(--ease), padding .45s var(--ease), box-shadow .45s var(--ease), color .45s var(--ease);
 }
 .nav::before{
-  /* без backdrop-filter: у зв'язці з position:fixed він у вебвʼюерах
-     Instagram/Telegram на iOS «відклеюється» під час скролу й лишає
-     видиму щілину — суцільний колір без блюру такого не робить */
-  content:''; position:absolute; inset:0; z-index:-1; opacity:0;
+  /* суцільний фон одразу, без перемикання прозорий→непрозорий на скролі:
+     саме та зміна opacity через is-stuck (що раніше спрацьовувала в парі
+     з backdrop-filter) і лишала щілину на iOS Safari — вона накладалась
+     на власну анімацію показу/приховування адресного рядка браузера під
+     час скролу. Постійний суцільний фон із цим не конфліктує. */
+  content:''; position:absolute; inset:0; z-index:-1;
   background:var(--ink);
   border-bottom:1px solid var(--line-dark);
-  transition:opacity .45s var(--ease);
 }
 .nav.is-stuck{ padding-block:11px }
-.nav.is-stuck::before{ opacity:1 }
 .nav__brand{ display:flex; align-items:center; gap:12px; flex:0 0 auto }
 .nav__brand img{ width:44px; height:44px; border-radius:50%; object-fit:cover;
                  transition:transform .5s var(--ease) }
