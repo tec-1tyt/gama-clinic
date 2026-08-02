@@ -40,8 +40,14 @@
 /* ---------------------------------------------------------------- base */
 *,*::before,*::after{ box-sizing:border-box }
 html{
+  /* overflow-x НЕ ставимо тут: якщо в html задати будь-яке значення
+     overflow, крім visible, браузер перестає ставитись до нього як до
+     кореневого скролера сторінки (спец. правило "propagation" більше не
+     діє) — колесо миші й touchpad, а також window.scrollTo(), просто
+     перестають прокручувати сторінку. Досить overflow-x:hidden на body:
+     він коректно "спливає" на viewport, поки html лишається visible. */
   scroll-behavior:smooth; -webkit-text-size-adjust:100%;
-  background:var(--ink); overflow-x:hidden; overscroll-behavior-y:none;
+  background:var(--ink); overscroll-behavior-y:none;
 }
 body{
   margin:0; background:var(--ink); color:var(--t-on-light);
