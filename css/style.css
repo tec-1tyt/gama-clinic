@@ -39,11 +39,14 @@
 
 /* ---------------------------------------------------------------- base */
 *,*::before,*::after{ box-sizing:border-box }
-html{ scroll-behavior:smooth; -webkit-text-size-adjust:100% }
+html{
+  scroll-behavior:smooth; -webkit-text-size-adjust:100%;
+  background:var(--ink); overflow-x:hidden; overscroll-behavior-y:none;
+}
 body{
   margin:0; background:var(--ink); color:var(--t-on-light);
   font-family:var(--f-text); font-size:16px; font-weight:400; line-height:1.6;
-  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden; overscroll-behavior-y:none;
 }
 img,svg,iframe{ display:block; max-width:100% }
 img{ height:auto }
@@ -171,8 +174,11 @@ ul,ol{ margin:0; padding:0; list-style:none }
   transition:background .45s var(--ease), padding .45s var(--ease), box-shadow .45s var(--ease), color .45s var(--ease);
 }
 .nav::before{
+  /* без backdrop-filter: у зв'язці з position:fixed він у вебвʼюерах
+     Instagram/Telegram на iOS «відклеюється» під час скролу й лишає
+     видиму щілину — суцільний колір без блюру такого не робить */
   content:''; position:absolute; inset:0; z-index:-1; opacity:0;
-  background:rgba(11,11,9,.94); backdrop-filter:blur(18px);
+  background:var(--ink);
   border-bottom:1px solid var(--line-dark);
   transition:opacity .45s var(--ease);
 }
@@ -300,7 +306,10 @@ ul,ol{ margin:0; padding:0; list-style:none }
 @keyframes slide{ to{ transform:translateX(-50%) } }
 
 /* ---------------------------------------------------------------- секції */
-.sect{ position:relative; padding:clamp(80px,10vw,150px) 0 }
+/* overflow-x:hidden тут — запобіжник для декоративних плям (.morph), які
+   навмисно виступають за край фото через відʼємні відсотки right/left/bottom:
+   на вузьких екранах цей виступ інакше штовхає ширину сторінки за viewport */
+.sect{ position:relative; padding:clamp(80px,10vw,150px) 0; overflow-x:hidden }
 .sect--light{ background:var(--paper); color:var(--t-on-light) }
 .sect--paper{ background:var(--paper-2); color:var(--t-on-light) }
 .sect--dark{ background:var(--ink); color:var(--t-on-dark) }
@@ -411,15 +420,18 @@ ul,ol{ margin:0; padding:0; list-style:none }
   padding:14px 0; margin-bottom:34px; background:var(--paper-2);
   border-bottom:1px solid var(--line-light);
 }
-.tabs{ display:flex; gap:8px; overflow-x:auto; width:100%; scrollbar-width:none; padding-bottom:2px }
-.tabs::-webkit-scrollbar{ display:none }
+/* Сітка замість горизонтального рядка зі скролом: приховану смугу
+   прокрутки неможливо було потягнути мишею на комп'ютері (лише тачем на
+   мобільному), тому категорії 05–09 залишались недосяжними на десктопі.
+   У сітці видно одразу всі вкладки, гортати нічого не треба. */
+.tabs{ display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; width:100% }
 .tab{
-  flex:0 0 auto; display:flex; align-items:center; gap:8px; padding:10px 16px; cursor:pointer;
+  display:flex; align-items:center; gap:8px; padding:10px 16px; cursor:pointer;
   background:none; border:1px solid var(--line-light); border-radius:99px;
-  font-size:12.5px; font-weight:600; white-space:nowrap;
+  font-size:12.5px; font-weight:600; line-height:1.3; text-align:left;
   transition:background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
 }
-.tab small{ font-size:9.5px; letter-spacing:.1em; opacity:.45 }
+.tab small{ flex:0 0 auto; font-size:9.5px; letter-spacing:.1em; opacity:.45 }
 .tab:hover{ border-color:var(--olive) }
 .tab.is-on{ background:var(--ink); border-color:var(--ink); color:var(--paper) }
 .tab.is-on small{ color:var(--olive-lt); opacity:1 }
@@ -569,7 +581,11 @@ ul,ol{ margin:0; padding:0; list-style:none }
 
 /* ---------------------------------------------------------------- карта */
 .map__btns{ display:flex; gap:12px; flex-wrap:wrap }
-.map__frame{ position:relative; border:1px solid var(--line-light); border-radius:var(--r); overflow:hidden;
+/* width:100% є обовʼязковим: без нього aspect-ratio разом із min-height
+   змушує браузер підганяти ШИРИНУ під співвідношення сторін (щоб дотримати
+   21:8 при висоті 300px), і на вузьких екранах рамка карти роздувалась до
+   ~790px, ламаючи всю сторінку по горизонталі */
+.map__frame{ position:relative; width:100%; border:1px solid var(--line-light); border-radius:var(--r); overflow:hidden;
              aspect-ratio:21/8; min-height:300px; background:var(--paper-3) }
 .map__frame iframe{ width:100%; height:100%; border:0; filter:grayscale(1) contrast(1.04);
                     transition:filter .8s var(--ease) }
@@ -609,6 +625,7 @@ ul,ol{ margin:0; padding:0; list-style:none }
   .feed{ grid-template-columns:repeat(3,1fr) }
   .foot__grid{ grid-template-columns:1fr 1fr }
   .foot__brand{ grid-column:1 / -1 }
+  .tabs{ grid-template-columns:repeat(2, 1fr) }
 }
 @media (max-width:820px){
   .nav__links{
@@ -640,7 +657,7 @@ ul,ol{ margin:0; padding:0; list-style:none }
   .price__bar{ gap:12px }
   .search{ order:-1; width:100% }
   .search input{ width:100% }
-  .tabs{ flex:1 1 100% }
+  .tabs{ grid-template-columns:1fr }
   /* тарифи спеціалістів списком: підпис ліворуч, ціна праворуч */
   .row__tiers{ display:grid; grid-template-columns:1fr; gap:6px }
   .tier{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; text-align:left }
