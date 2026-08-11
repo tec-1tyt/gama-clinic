@@ -9,11 +9,6 @@ const CONFIG = {
   instagram: 'https://www.instagram.com/gama_clinic/',
   instagramDirect: 'https://ig.me/m/gama_clinic',
   instagramHandle: '@gama_clinic',
-  // Впишіть офіційну пошту клініки — і форма запису почне пропонувати
-  // надсилання заявки на неї (кнопка «Написати на пошту» + сама форма
-  // відкриє поштову програму з готовим листом). Поки порожньо — сайт
-  // працює лише через Instagram Direct, як і раніше.
-  email: '',
   addressUa: 'вул. Українська, 6А, м. Коломия, Івано-Франківська обл.',
   addressEn: '6A Ukrainska St., Kolomyia, Ivano-Frankivsk region, Ukraine',
   mapQuery: 'вул. Українська 6А, Коломия, Івано-Франківська область',

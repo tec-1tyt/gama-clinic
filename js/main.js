@@ -348,23 +348,20 @@ function renderContacts() {
 
   const set = (sel, fn) => { const el = $(sel); if (el) fn(el); };
 
-  set('#telLink',   el => { el.href = tel; el.textContent = CONFIG.phoneLabel; });
   set('#footTel',   el => { el.href = tel; el.textContent = CONFIG.phoneLabel; });
-  set('#callChip',  el => { el.href = tel; });
-  set('#igLink',    el => { el.href = CONFIG.instagram; el.textContent = CONFIG.instagramHandle; });
   set('#footIg',    el => { el.href = CONFIG.instagram; el.textContent = CONFIG.instagramHandle; });
   set('#feedCta',   el => { el.href = CONFIG.instagram; });
-  set('#directChip',el => { el.href = CONFIG.instagramDirect; });
-  /* пошта — необовʼязкова: рядок контактів і кнопка зʼявляються, тільки
-     коли в CONFIG.email щось вписано */
-  set('#emailRow',  el => { el.hidden = !CONFIG.email; });
-  set('#emailLink', el => { el.href = 'mailto:' + CONFIG.email; el.textContent = CONFIG.email; });
-  set('#mailChip',  el => { el.hidden = !CONFIG.email; el.href = 'mailto:' + CONFIG.email; });
   set('#addrTxt',   el => { el.textContent = addr; });
   set('#footAddr',  el => { el.textContent = addr; });
   set('#hoursTxt',  el => { el.textContent = hours; });
   set('#footHours', el => { el.textContent = hours; });
   set('#year',      el => { el.textContent = new Date().getFullYear(); });
+
+  /* блок запису — дві великі кнопки замість форми */
+  set('#bookCallBtn',   el => { el.href = tel; });
+  set('#bookCallValue', el => { el.textContent = CONFIG.phoneLabel; });
+  set('#bookDirectBtn',   el => { el.href = CONFIG.instagramDirect; });
+  set('#bookDirectValue', el => { el.textContent = CONFIG.instagramHandle; });
 
   set('#routeBtn',  el => { el.href = 'https://www.google.com/maps/dir/?api=1&destination=' + q; });
   set('#openMapBtn',el => { el.href = 'https://www.google.com/maps/search/?api=1&query=' + q; });
@@ -372,15 +369,6 @@ function renderContacts() {
     const src = 'https://www.google.com/maps?q=' + q + '&hl=' + (LANG === 'en' ? 'en' : 'uk') + '&z=16&output=embed';
     if (el.getAttribute('src') !== src) el.setAttribute('src', src);
   });
-
-  const sel = $('#f-service');
-  if (sel) {
-    const keep = sel.value;
-    sel.innerHTML = '<option value="">' + esc(t('booking.servicePh')) + '</option>' +
-      CATEGORIES.map(c => '<option value="' + c.id + '">' +
-        esc(LANG === 'en' ? c.en : c.ua) + '</option>').join('');
-    if (keep) sel.value = keep;
-  }
 }
 
 
@@ -470,63 +458,7 @@ function bindPrice() { if ($('#search').value) runSearch($('#search').value); }
 
 
 /* ═══════════════════════════════════════════════════════════════
-   6. ФОРМА ЗАПИСУ
-   ═══════════════════════════════════════════════════════════════ */
-(function form() {
-  const f = $('#form');
-  if (!f) return;
-
-  const showErr = (name, msg) => {
-    const box = f.querySelector('[data-err="' + name + '"]');
-    const fld = f.querySelector('[name="' + name + '"]').closest('.field');
-    if (box) box.textContent = msg || '';
-    fld.classList.toggle('has-err', !!msg);
-  };
-
-  f.addEventListener('submit', e => {
-    e.preventDefault();
-    const name    = f.name.value.trim();
-    const phone   = f.phone.value.trim();
-    const comment = f.comment.value.trim();
-    const svcSel  = f.service;
-    const service = svcSel.selectedIndex > 0 ? svcSel.options[svcSel.selectedIndex].text : '';
-
-    let ok = true;
-    if (name.length < 2)                       { showErr('name',  t('booking.errName'));  ok = false; } else showErr('name');
-    if (phone.replace(/\D/g, '').length < 9)   { showErr('phone', t('booking.errPhone')); ok = false; } else showErr('phone');
-    if (!ok) return;
-
-    const subject = LANG === 'en' ? 'Booking request — GaMa clinic' : 'Заявка на запис — клініка GaMa';
-    const bodyLines = (LANG === 'en'
-      ? ['Name: ' + name, 'Phone: ' + phone]
-      : ['Імʼя: ' + name, 'Телефон: ' + phone])
-      .concat(service ? [(LANG === 'en' ? 'Service: ' : 'Послуга: ') + service] : [])
-      .concat(comment ? [(LANG === 'en' ? 'Comment: ' : 'Коментар: ') + comment] : []);
-    const body = bodyLines.join('\n');
-
-    if (navigator.clipboard) navigator.clipboard.writeText(subject + '\n' + body).catch(() => {});
-
-    const okBox = $('#formOk');
-
-    /* поки CONFIG.email порожній — заявка йде тільки через Instagram Direct,
-       як і раніше. Щойно адресу вписано в js/data.js, форма сама починає
-       відкривати поштову програму з готовим листом замість Instagram. */
-    if (CONFIG.email) {
-      okBox.textContent = t('booking.sentMail');
-      okBox.hidden = false;
-      window.location.href = 'mailto:' + CONFIG.email +
-        '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    } else {
-      okBox.textContent = t('booking.sent');
-      okBox.hidden = false;
-      window.open(CONFIG.instagramDirect, '_blank', 'noopener');
-    }
-  });
-})();
-
-
-/* ═══════════════════════════════════════════════════════════════
-   7. НАВІГАЦІЯ, ПОЯВА БЛОКІВ, ЛІЧИЛЬНИКИ
+   6. НАВІГАЦІЯ, ПОЯВА БЛОКІВ, ЛІЧИЛЬНИКИ
    ═══════════════════════════════════════════════════════════════ */
 const nav = $('#nav');
 const stick = () => nav.classList.toggle('is-stuck', window.scrollY > 40);
@@ -591,7 +523,7 @@ function countUp(el) {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   8. СТАРТ
+   7. СТАРТ
    ═══════════════════════════════════════════════════════════════ */
 renderMarquee();
 applyLang();

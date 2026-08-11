@@ -274,10 +274,6 @@
 
       <dl class="contacts reveal">
         <div>
-          <dt data-i18n="booking.phoneLabel">Телефон</dt>
-          <dd><a id="telLink" href="#" data-cursor="cta"></a></dd>
-        </div>
-        <div>
           <dt data-i18n="booking.hours">Графік роботи</dt>
           <dd id="hoursTxt"></dd>
         </div>
@@ -285,58 +281,35 @@
           <dt data-i18n="booking.addr">Адреса</dt>
           <dd id="addrTxt"></dd>
         </div>
-        <div>
-          <dt>Instagram</dt>
-          <dd><a id="igLink" href="#" target="_blank" rel="noopener" data-cursor="cta"></a></dd>
-        </div>
-        <div id="emailRow" hidden>
-          <dt data-i18n="booking.emailLabel">Пошта</dt>
-          <dd><a id="emailLink" href="#" data-cursor="cta"></a></dd>
-        </div>
       </dl>
     </div>
 
-    <form class="form reveal" id="form" novalidate>
-      <div class="field">
-        <label for="f-name" data-i18n="booking.name">Ваше імʼя</label>
-        <input id="f-name" name="name" type="text" data-i18n-ph="booking.namePh" required>
-        <em class="err" data-err="name"></em>
-      </div>
-      <div class="field">
-        <label for="f-phone" data-i18n="booking.phone">Номер телефону</label>
-        <input id="f-phone" name="phone" type="tel" placeholder="+380 __ ___ __ __" inputmode="tel" required>
-        <em class="err" data-err="phone"></em>
-      </div>
-      <div class="field">
-        <label for="f-service" data-i18n="booking.service">Послуга</label>
-        <select id="f-service" name="service"></select>
-      </div>
-      <div class="field">
-        <label for="f-comment" data-i18n="booking.comment">Коментар</label>
-        <textarea id="f-comment" name="comment" rows="3" data-i18n-ph="booking.commentPh"></textarea>
-      </div>
-
-      <button class="btn btn--light btn--full" type="submit" data-cursor="cta" data-i18n="booking.submit">Надіслати заявку</button>
-
-      <div class="form__alt">
-        <span data-i18n="booking.or">або</span>
-        <a class="chip" id="callChip" href="#" data-cursor="cta">
-          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-          <span data-i18n="booking.call">Зателефонувати</span>
-        </a>
-        <a class="chip" id="directChip" href="#" target="_blank" rel="noopener" data-cursor="cta">
-          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M21 3 10.5 13.5M21 3l-6.8 18-3.7-7.5L3 9.8 21 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-          <span data-i18n="booking.direct">Написати в Direct</span>
-        </a>
-        <a class="chip" id="mailChip" href="#" data-cursor="cta" hidden>
-          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m4 6.5 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span data-i18n="booking.mail">Написати на пошту</span>
-        </a>
-      </div>
-
-      <p class="form__consent" data-i18n="booking.consent"></p>
-      <p class="form__ok" id="formOk" hidden></p>
-    </form>
+    <div class="book-actions reveal">
+      <a class="book-btn" id="bookCallBtn" href="#" data-cursor="cta">
+        <span class="book-btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="book-btn__text">
+          <b data-i18n="booking.call">Зателефонувати</b>
+          <i id="bookCallValue"></i>
+        </span>
+        <span class="book-btn__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a class="book-btn book-btn--olive" id="bookDirectBtn" href="#" target="_blank" rel="noopener" data-cursor="cta">
+        <span class="book-btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/></svg>
+        </span>
+        <span class="book-btn__text">
+          <b data-i18n="booking.direct">Написати в Direct</b>
+          <i id="bookDirectValue"></i>
+        </span>
+        <span class="book-btn__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 

@@ -163,13 +163,6 @@ ul,ol{ margin:0; padding:0; list-style:none }
 .btn--sm{ padding:12px 20px; font-size:11px }
 .btn--full{ width:100% }
 
-.chip{
-  display:inline-flex; align-items:center; gap:8px; padding:10px 16px;
-  border:1px solid var(--line-dark); border-radius:99px;
-  font-size:12px; font-weight:600; letter-spacing:.05em;
-  transition:border-color .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
-}
-.chip:hover{ border-color:var(--olive-lt); background:rgba(138,154,82,.14); color:var(--paper) }
 
 /* ---------------------------------------------------------------- шапка */
 .nav{
@@ -562,28 +555,27 @@ ul,ol{ margin:0; padding:0; list-style:none }
 .contacts a{ border-bottom:1px solid transparent; transition:border-color .3s }
 .contacts a:hover{ border-color:var(--olive-lt) }
 
-.form{ background:var(--ink-2); border:1px solid var(--line-dark); border-radius:var(--r); padding:clamp(24px,3vw,40px) }
-.field{ margin-bottom:18px }
-.field label{ display:block; font-size:10.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
-              color:var(--t-on-dark-mut); margin-bottom:8px }
-.field input,.field select,.field textarea{
-  width:100%; padding:13px 15px; background:rgba(246,244,237,.045);
-  border:1px solid var(--line-dark); border-radius:var(--r); outline:none; font-size:15px;
-  transition:border-color .3s var(--ease), background .3s var(--ease);
+/* дві великі клікабельні кнопки замість форми: подзвонити або
+   написати в Instagram Direct напряму */
+.book-actions{ display:flex; flex-direction:column; gap:16px; justify-content:center; align-self:center }
+.book-btn{
+  display:flex; align-items:center; gap:18px; padding:24px 26px;
+  border:1px solid var(--line-dark); border-radius:var(--r);
+  background:rgba(246,244,237,.03);
+  transition:border-color .4s var(--ease), background .4s var(--ease), transform .4s var(--ease);
 }
-.field textarea{ resize:vertical; min-height:76px; font-family:inherit }
-.field select{ appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%238A9A52' stroke-width='1.6'/%3E%3C/svg%3E");
-                background-repeat:no-repeat; background-position:right 15px center }
-.field select option{ background:var(--ink-2); color:var(--t-on-dark) }
-.field input:focus,.field select:focus,.field textarea:focus{ border-color:var(--olive-lt); background:rgba(246,244,237,.075) }
-.field input::placeholder,.field textarea::placeholder{ color:rgba(246,244,237,.30) }
-.field.has-err input{ border-color:#B4553F }
-.err{ display:block; font-style:normal; font-size:12px; color:#D9765E; margin-top:6px; min-height:0 }
-.form__alt{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:20px;
-            font-size:12px; color:var(--t-on-dark-mut) }
-.form__consent{ margin-top:18px; font-size:11.5px; line-height:1.6; color:rgba(246,244,237,.42) }
-.form__ok{ margin-top:16px; padding:14px 16px; border:1px solid rgba(138,154,82,.5);
-           background:rgba(90,101,43,.16); border-radius:var(--r); font-size:13.5px; line-height:1.6; color:var(--olive-lt) }
+.book-btn:hover{ border-color:var(--olive-lt); background:rgba(138,154,82,.10); transform:translateX(6px) }
+.book-btn__icon{
+  flex:0 0 auto; width:52px; height:52px; display:grid; place-items:center;
+  border-radius:50%; background:rgba(138,154,82,.16); color:var(--olive-lt);
+  transition:background .4s var(--ease), color .4s var(--ease);
+}
+.book-btn:hover .book-btn__icon{ background:var(--olive); color:#fff }
+.book-btn__text{ flex:1; display:flex; flex-direction:column; gap:5px; min-width:0 }
+.book-btn__text b{ font-family:var(--f-display); font-weight:400; font-size:clamp(19px,2vw,24px); letter-spacing:.01em }
+.book-btn__text i{ font-style:normal; display:block; font-size:14px; color:var(--t-on-dark-mut); letter-spacing:.02em }
+.book-btn__arrow{ flex:0 0 auto; display:flex; opacity:.4; transition:transform .4s var(--ease), opacity .4s var(--ease) }
+.book-btn:hover .book-btn__arrow{ transform:translateX(4px); opacity:1 }
 
 /* ---------------------------------------------------------------- карта */
 .map__btns{ display:flex; gap:12px; flex-wrap:wrap }
