@@ -85,7 +85,7 @@ const TECH = [
     nameEn: 'LUMECCA',
     descUa: 'Інтенсивний імпульсний світловий модуль для фотоомолодження: працює з пігментацією, судинами та постакне.',
     descEn: 'Intense pulsed light module for photorejuvenation: pigmentation, vascular lesions and post-acne marks.',
-    img: 'assets/instagram/ig-02.jpg'
+    img: 'assets/img/tech-lumecca.jpg'
   },
   {
     tag: 'InMode',
@@ -828,12 +828,14 @@ const FEED = [
   { img: 'assets/instagram/ig-08.jpg', ua: 'Ферментотерапія GLYMED+ · до / після', en: 'GLYMED+ enzyme therapy · before / after' },
   { img: 'assets/instagram/ig-11.jpg', ua: 'Ламінування вій · після', en: 'Lash lamination · after' },
   { img: 'assets/instagram/ig-05.jpg', ua: 'Контурна пластика губ · після процедури', en: 'Lip contouring · after the procedure' },
-  { img: 'assets/instagram/ig-01.jpg', ua: 'Прайс · косметологія', en: 'Price · cosmetology' },
-  { img: 'assets/instagram/ig-02.jpg', ua: 'Прайс · апаратні методики', en: 'Price · device treatments' },
-  { img: 'assets/instagram/ig-03.jpg', ua: 'Акційні сети процедур', en: 'Discounted treatment sets' },
+  { img: 'assets/img/feed-inject-2.jpg', ua: 'Марта Галіщук · Restylane Kysse', en: 'Marta Halishchuk · Restylane Kysse' },
+  { img: 'assets/img/feed-inject-1.jpg', ua: 'Контурна пластика губ у роботі', en: 'Lip contouring in progress' },
+  { img: 'assets/img/feed-team.jpg', ua: 'Ольга та Марта в кабінеті', en: 'Olha and Marta at the clinic' },
   { img: 'assets/instagram/ig-07.jpg', ua: 'Догляд в кабінеті', en: 'In-clinic care' },
   { img: 'assets/instagram/ig-09.jpg', ua: 'У клініці', en: 'At the clinic' },
+  { img: 'assets/img/feed-inject-4.jpg', ua: 'Марта Галіщук · Saypha Volume Plus', en: 'Marta Halishchuk · Saypha Volume Plus' },
   { img: 'assets/instagram/ig-06.jpg', ua: 'MEDAVITA Solarich', en: 'MEDAVITA Solarich' },
+  { img: 'assets/img/feed-inject-3.jpg', ua: 'Препарати Saypha Lips і Filler', en: 'Saypha Lips and Filler products' },
   { img: 'assets/instagram/ig-12.jpg', ua: 'Colorescience SPF 50', en: 'Colorescience SPF 50' },
   { img: 'assets/instagram/ig-10.jpg', ua: 'З життя клініки', en: 'Life at the clinic' }
 ];
