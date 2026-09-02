@@ -107,7 +107,7 @@ const TECH = [
     nameEn: 'Endosphere Therapy',
     descUa: 'Компресійна мікровібрація для обличчя й тіла: лімфодренаж, тонус, робота з целюлітом.',
     descEn: 'Compressive micro-vibration for face and body: lymphatic drainage, tone and cellulite work.',
-    img: 'assets/img/care-massage.jpg'
+    img: 'assets/img/tech-endosphere.jpg'
   },
   {
     nameUa: 'VelaShape',
