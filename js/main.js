@@ -475,6 +475,25 @@ links.addEventListener('click', e => {
   if (e.target.closest('a')) { links.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); }
 });
 
+/* плавний скрол лише для кліків по внутрішніх якорях — навмисно НЕ
+   через глобальний CSS scroll-behavior:smooth (він же ловить і звичайне
+   колесо миші/тачпад: новий тик, що прилітає поки попередній ще
+   доанімовується, браузер інколи просто ігнорує — скрол відчутно
+   «застрягає»). Тут плавність вмикається виключно там, де її й просили —
+   при переході по посиланню, а руками — завжди миттєво й без ривків. */
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const id = a.getAttribute('href').slice(1);
+  if (!id) return;
+  const target = document.getElementById(id);
+  if (!target) return;
+  e.preventDefault();
+  const top = target.getBoundingClientRect().top + window.scrollY - (nav.offsetHeight + 12);
+  window.scrollTo({ top, behavior: REDUCED ? 'auto' : 'smooth' });
+  history.pushState(null, '', '#' + id);
+});
+
 /* активний пункт меню */
 const navMap = {};
 $$('#navLinks a').forEach(a => { navMap[a.getAttribute('href').slice(1)] = a; });

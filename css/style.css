@@ -46,7 +46,12 @@ html{
      діє) — колесо миші й touchpad, а також window.scrollTo(), просто
      перестають прокручувати сторінку. Досить overflow-x:hidden на body:
      він коректно "спливає" на viewport, поки html лишається visible. */
-  scroll-behavior:smooth; -webkit-text-size-adjust:100%;
+  /* scroll-behavior:smooth теж НЕ ставимо глобально: він ловить не лише
+     клік по якорях, а й звичайне колесо миші/тачпад, і коли новий тик
+     прилітає, поки попередній ще доанімовується, браузер його інколи
+     просто «зʼїдає» — скрол ривками застрягає. Плавність для якорів
+     робимо точково через JS (розділ 6 у js/main.js). */
+  -webkit-text-size-adjust:100%;
   background:var(--ink); overscroll-behavior-y:none;
 }
 body{
