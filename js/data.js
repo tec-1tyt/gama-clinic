@@ -114,7 +114,7 @@ const TECH = [
     nameEn: 'VelaShape',
     descUa: 'Апаратна корекція фігури: вакуум, ролики та інфрачервоне світло в одній насадці.',
     descEn: 'Device body contouring: vacuum, rollers and infrared light in a single handpiece.',
-    img: 'assets/instagram/ig-02.jpg'
+    img: 'assets/img/tech-velashape.jpg'
   },
   {
     nameUa: 'Аналізатор шкіри',
@@ -122,6 +122,13 @@ const TECH = [
     descUa: 'Апаратна діагностика до початку курсу: рівень зволоження, пігмент, пори, судинна сітка.',
     descEn: 'Device diagnostics before any course: hydration level, pigment, pores and vascular network.',
     img: 'assets/img/care-peel.jpg'
+  },
+  {
+    nameUa: 'Мікрострумова терапія',
+    nameEn: 'Microcurrent therapy',
+    descUa: 'Слабкі імпульси тонізують мімічні мʼязи та знімають набряк — помітний лімфодренажний ефект.',
+    descEn: 'Low-level impulses tone the facial muscles and reduce puffiness — a noticeable lymphatic effect.',
+    img: 'assets/img/tech-microcurrent.jpg'
   }
 ];
 
