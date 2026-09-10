@@ -310,10 +310,16 @@ ul,ol{ margin:0; padding:0; list-style:none }
 @keyframes slide{ to{ transform:translateX(-50%) } }
 
 /* ---------------------------------------------------------------- секції */
-/* overflow-x:hidden тут — запобіжник для декоративних плям (.morph), які
-   навмисно виступають за край фото через відʼємні відсотки right/left/bottom:
-   на вузьких екранах цей виступ інакше штовхає ширину сторінки за viewport */
-.sect{ position:relative; padding:clamp(80px,10vw,150px) 0; overflow-x:hidden }
+/* overflow-x:clip (НЕ hidden!) — запобіжник для декоративних плям
+   (.morph), які навмисно виступають за край фото через відʼємні
+   відсотки right/left/bottom: на вузьких екранах цей виступ інакше
+   штовхає ширину сторінки за viewport. Саме clip, а не hidden: якщо
+   задати лише overflow-x, браузер обчислює overflow-y як auto (а не
+   visible) — і кожна секція стає власним скрол-контейнером, у якому
+   скрол миші/пальця «застрягає», щойно натрапляє на неї (це й ламало
+   скрол на блоці Марти Галіщук на мобільних). Overflow-x:clip кліпає
+   так само, але не створює скролable-бокс і цієї побічної дії не має. */
+.sect{ position:relative; padding:clamp(80px,10vw,150px) 0; overflow-x:clip }
 .sect--light{ background:var(--paper); color:var(--t-on-light) }
 .sect--paper{ background:var(--paper-2); color:var(--t-on-light) }
 .sect--dark{ background:var(--ink); color:var(--t-on-dark) }
