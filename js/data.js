@@ -129,6 +129,14 @@ const TECH = [
     descUa: 'Слабкі імпульси тонізують мімічні мʼязи та знімають набряк — помітний лімфодренажний ефект.',
     descEn: 'Low-level impulses tone the facial muscles and reduce puffiness — a noticeable lymphatic effect.',
     img: 'assets/img/tech-microcurrent.jpg'
+  },
+  {
+    tag: 'Arthrex',
+    nameUa: 'Плазмоліфтинг',
+    nameEn: 'Plasma lifting',
+    descUa: 'Центрифугування власної крові виділяє тромбоцитарну плазму — природна регенерація та бланшинг шкіри без чужорідних препаратів.',
+    descEn: 'Centrifuging the client\'s own blood isolates platelet-rich plasma — natural skin regeneration and blanching without foreign substances.',
+    img: 'assets/img/tech-plasma.jpg'
   }
 ];
 
@@ -838,11 +846,11 @@ const FEED = [
   { img: 'assets/img/feed-inject-2.jpg', ua: 'Марта Галіщук · Restylane Kysse', en: 'Marta Halishchuk · Restylane Kysse' },
   { img: 'assets/img/feed-inject-1.jpg', ua: 'Контурна пластика губ у роботі', en: 'Lip contouring in progress' },
   { img: 'assets/img/feed-team.jpg', ua: 'Ольга та Марта в кабінеті', en: 'Olha and Marta at the clinic' },
-  { img: 'assets/instagram/ig-07.jpg', ua: 'Догляд в кабінеті', en: 'In-clinic care' },
+  { img: 'assets/img/feed-laser.jpg', ua: 'Лазерна епіляція DIOLAZE', en: 'DIOLAZE laser hair removal' },
   { img: 'assets/instagram/ig-09.jpg', ua: 'У клініці', en: 'At the clinic' },
   { img: 'assets/img/feed-inject-4.jpg', ua: 'Марта Галіщук · Saypha Volume Plus', en: 'Marta Halishchuk · Saypha Volume Plus' },
   { img: 'assets/instagram/ig-06.jpg', ua: 'MEDAVITA Solarich', en: 'MEDAVITA Solarich' },
   { img: 'assets/img/feed-inject-3.jpg', ua: 'Препарати Saypha Lips і Filler', en: 'Saypha Lips and Filler products' },
   { img: 'assets/instagram/ig-12.jpg', ua: 'Colorescience SPF 50', en: 'Colorescience SPF 50' },
-  { img: 'assets/instagram/ig-10.jpg', ua: 'З життя клініки', en: 'Life at the clinic' }
+  { img: 'assets/img/feed-portrait.jpg', ua: 'Клієнтка GaMa', en: 'GaMa client' }
 ];
