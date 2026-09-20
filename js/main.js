@@ -323,7 +323,9 @@ function renderPrice() {
     const groups = c.groups.map(g => {
       const title = LANG === 'en' ? g.en : g.ua;
       /* контекст додається у пошуковий індекс: «ботулінотерапія» знаходить «Чоло + міжбрівʼя» */
-      const ctx   = catName + ' ' + (title || '');
+      /* розмовні синоніми: «ботокс» — найчастіший пошуковий запит клієнтів, у прайсі його немає */
+      const alias = /ботулінотерапія|botulinum/i.test(catName) ? ' ботокс botox диспорт disport' : '';
+      const ctx   = catName + ' ' + (title || '') + alias;
       const note  = g.note ? '<p class="grp__note">' + esc(LANG === 'en' ? g.note.en : g.note.ua) + '</p>' : '';
       const head  = title ? '<div class="grp__h"><h3>' + esc(title) + '</h3><span></span></div>' : '';
       const body  = g.layout === 'table'
