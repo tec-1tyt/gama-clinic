@@ -4,8 +4,8 @@
 
 const I18N = {
   ua: {
-    'meta.title': 'GaMa — клініка краси та здоровʼя в Коломиї',
-    'meta.desc': 'Ліцензована клініка косметології та дерматології в Коломиї. Головний косметолог — Марта Галіщук. LUMECCA, DIOLAZE, ін\'єкційна косметологія, масаж. Прозорий прайс.',
+    'meta.title': 'GaMa — косметолог у Коломиї | клініка краси та здоровʼя',
+    'meta.desc': 'Косметологічна клініка GaMa в Коломиї: ліцензована косметологія та дерматологія. Головний косметолог — Марта Галіщук. LUMECCA, DIOLAZE, ін\'єкційна косметологія, масаж. Прозорий прайс.',
 
     'nav.about': 'Про клініку',
     'nav.team': 'Спеціалісти',
@@ -110,8 +110,8 @@ const I18N = {
   },
 
   en: {
-    'meta.title': 'GaMa — health & beauty clinic in Kolomyia',
-    'meta.desc': 'Licensed cosmetology and dermatology clinic in Kolomyia, Ukraine. Chief cosmetologist — Marta Halishchuk. LUMECCA, DIOLAZE, injectables, massage. Transparent pricing.',
+    'meta.title': 'GaMa — cosmetologist in Kolomyia | health & beauty clinic',
+    'meta.desc': 'Cosmetologist clinic GaMa in Kolomyia, Ukraine: licensed cosmetology and dermatology. Chief cosmetologist — Marta Halishchuk. LUMECCA, DIOLAZE, injectables, massage. Transparent pricing.',
 
     'nav.about': 'About',
     'nav.team': 'Specialists',
