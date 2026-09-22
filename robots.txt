@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tec-1tyt.github.io/gama-clinic/sitemap.xml
+Sitemap: https://gama-clinic.com/sitemap.xml
