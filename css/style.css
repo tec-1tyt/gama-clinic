@@ -666,7 +666,20 @@ ul,ol{ margin:0; padding:0; list-style:none }
   .price__bar{ gap:12px }
   .search{ order:-1; width:100% }
   .search input{ width:100% }
-  .tabs{ grid-template-columns:1fr }
+  /* На мобільному вкладки — горизонтальний рядок, а не стовпчик із 9 рядків:
+     стовпчик займав майже весь екран, і палець, що намагався прогорнути
+     сторінку далі, майже завжди потрапляв на кнопку категорії — скрол
+     перетворювався на випадкове перемикання вкладок замість прокрутки.
+     На тачі горизонтальний скрол пальцем працює нативно (на відміну від
+     миші на комп'ютері, де це раніше й замінили на сітку), тому тут це
+     безпечно. */
+  .tabs{
+    display:flex; flex-wrap:nowrap; gap:8px; overflow-x:auto; overflow-y:visible;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    margin-inline:calc(var(--pad) * -1); padding-inline:var(--pad);
+  }
+  .tabs::-webkit-scrollbar{ display:none }
+  .tabs .tab{ flex:0 0 auto; white-space:nowrap }
   /* тарифи спеціалістів списком: підпис ліворуч, ціна праворуч */
   .row__tiers{ display:grid; grid-template-columns:1fr; gap:6px }
   .tier{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; text-align:left }
